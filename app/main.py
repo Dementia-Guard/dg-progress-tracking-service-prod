@@ -1,7 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import predictions
 from app.core.config import settings
+
 
 app = FastAPI(
     title="Alzheimer's Disease Progress Tracking API",
@@ -19,6 +20,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Include routers
-app.include_router(predictions.router, prefix="/api/v1")
-# app.include_router(health.router, prefix="/api/v1")
+app.include_router(predictions.router)
+
+
+@app.get("/")
+async def root():
+    return {
+        "message": "Welcome to Alzheimer's Disease Progress Tracking API",
+        "version": "1.0.0",
+        "endpoints": ["/details", "/predict"]
+    }
+
