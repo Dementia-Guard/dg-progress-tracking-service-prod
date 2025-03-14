@@ -1,6 +1,4 @@
-import os
 import tensorflow as tf
-import numpy as np
 from app.core.config import settings
 import logging
 

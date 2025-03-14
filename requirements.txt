@@ -1,5 +1,7 @@
 fastapi
 uvicorn
 numpy
+pandas
 tensorflow-cpu==2.17.0
-nibabel
+pydantic
+pydantic-settings

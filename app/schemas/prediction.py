@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional
-import numpy as np
 
 
 class Visit(BaseModel):
